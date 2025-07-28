@@ -1,18 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import subprocess
 import regex as re
-
-# Function to run the Streamlit app - For Refresh Button
-def run_streamlit_app():
-    try:
-        subprocess.run(["streamlit", "run", "assignment.py"], check=True)
-    except subprocess.CalledProcessError as e:
-        print(f"❌ Streamlit app failed: {e}")
-    except FileNotFoundError:
-        print("❌ 'streamlit' command not found. Make sure it's installed and in PATH.")
-
 
 # Read the Excel file
 data = pd.read_excel('DDP_ASG.xlsx') # Requires pip install openpyxl
