@@ -22,7 +22,7 @@ badge_keywords = {
     'Transport': ['stn', 'int'],
     'Accommodation': ['hotel', 'hostel', 'inn', 'resort', 'lodge', 'motel','ritz-carlton'],
     'Attraction': ['sentosa', 'gallery', 'museum', 'zoo', 'park', 'gardens', 'esplanade', 'theatre','float'],
-    'Shopping': ['orchard', 'bugis','ion','mall','vivocity',''],
+    'Shopping': ['orchard', 'bugis','ion','mall','vivocity'],
     'Cultural': ['chinatown', 'little india'],
     'Food': ['hawker', 'food court', 'restaurant', 'food centre', 'boat quay', 'clarke quay','lau pa sat'],
     'Airport':['airport']
