@@ -7,10 +7,6 @@ import regex as re
 data = pd.read_excel('DDP_ASG.xlsx') # Requires pip install openpyxl
 data.fillna("-", inplace=True) 
 
-# Display the Streamlit app title and description
-st.title("Tourist Bus Stop Information in Singapore")
-st.write("This is a simple app to display bus stop data that might be relevant for tourists visiting Singapore." \
-"\nContains bus stop information of various touristy locations, notable locations, and next bus arrival times.")
 # ----------------------------------------------------------------------
 
 # Initialize variables
@@ -57,7 +53,7 @@ def headers():
     """, unsafe_allow_html=True)
 # ----------------------------------------------------------------------
 
-# -- Get Badges
+# -- Function to Get Badges
 def get_badge(location):
     for category, keywords in badge_keywords.items():
         for keyword in keywords:
@@ -70,7 +66,22 @@ def get_badge(location):
                 {emoji} {category}
                 </span>"""
     return ""
+# -- Display title
+# Display the Streamlit app title and description
+st.title("Tourist Bus Stop Information in Singapore")
+st.write("This is a simple app to display bus stop data that might be relevant for tourists visiting Singapore." \
+"\nContains bus stop information of various touristy locations, notable locations, and next bus arrival times.")
+
+# -- Side bar
+st.sidebar.subheader("🔎 Jump to Bus Stop")
+unique_stops = data[['BusStopCode', 'Description']].drop_duplicates()
+
+for _, row in unique_stops.iterrows():
+    code = row['BusStopCode']
+    desc = row['Description']
+    st.sidebar.markdown(f"[🚌 {code:05d} - {desc}](#{code})", unsafe_allow_html=True)
 # ----------------------------------------------------------------------
+
 for i, row in data.iterrows():
     current_stop = row['BusStopCode']
     current_service = row['ServiceNo']
@@ -79,7 +90,15 @@ for i, row in data.iterrows():
     destination_desc = row['DestinationDescription']
 
     if current_stop != previous_stop:
-        st.subheader(f"🚌 Bus Stop {current_stop:05d} - {current_description}")
+        # link for table of contents and displays bus stop code and description
+        st.markdown(
+            f'''
+            <div id="{current_stop}" style="margin-top: -70px; padding-top: 70px;"> 
+                <h2>🚌 Bus Stop {current_stop:05d} - {current_description}</h2>
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
         previous_stop = current_stop
 
     with st.container(border=True):
@@ -117,41 +136,3 @@ for i, row in data.iterrows():
 
             # End card
             st.markdown("</div>", unsafe_allow_html=True)
-
-'''Version 1
-
-    notable_locations = row['NotableLocations'].split(',')
-    stops_until = row['StopsUntil'].split(',')
-
-    notable_text = ""
-    for i in range(len(notable_locations)):
-        location = notable_locations[i].strip()
-        stops = stops_until[i].strip()
-        badge = get_badge(location)
-        notable_text += f"""
-        <tr>
-            <td style='width:25%; vertical-align: top;'>{badge}</td>
-            <td colspan = 3, style='width:75%'>{location} in {stops} stops</td>
-        </tr>
-        """
-
-    st.markdown(f""" 
-        <table border="1" style="width: 100%; border-collapse: collapse; margin-top:0rem; margin-bottom:0rem">
-            <tr>
-                <td style ="width: 25%">{row['ServiceNo']}</td>
-                <td style = "width: 25%">{row['NextBus']}</td>
-                <td style = "width: 25%">{row['NextBus2']}</td>
-                <td style = "width: 25%">{row['NextBus3']}</td>
-            </tr> 
-            <tr>
-                <td colspan =4>
-                    Notable Locations (Within next 20 stops from this bus stop):
-                    <br>
-                    {notable_text}<br>
-                </td>
-            </tr>
-            <tr>
-            <td colspan = 4>🛑 Last Destination: {destination_code} - {destination_desc}</td>
-            </tr>
-        </table>
-        """, unsafe_allow_html=True)'''
