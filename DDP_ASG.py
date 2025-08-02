@@ -31,7 +31,7 @@ badge_colors = {
     'Cultural': '#fcd374' ,       # Light Yellow
     'Food': "#ffa87a",            # Light orange
     'Accommodation': "#ffabed",  # Light pink,
-    'Airport': "#76D5C7"
+    'Airport': "#76D5C7" # Light Teal
 }
 category_icons = {
     'Transport': "🚌",
