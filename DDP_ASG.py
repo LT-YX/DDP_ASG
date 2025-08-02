@@ -20,11 +20,12 @@ headers = ['Service No', 'Next Bus', 'Next Bus 2', 'Next Bus 3']
 
 badge_keywords = {
     'Transport': ['stn', 'int'],
+    'Accommodation': ['hotel', 'hostel', 'inn', 'resort', 'lodge', 'motel','ritz-carlton'],
     'Attraction': ['sentosa', 'gallery', 'museum', 'zoo', 'park', 'gardens', 'esplanade'],
     'Shopping': ['orchard', 'bugis'],
     'Cultural': ['chinatown', 'little india'],
-    'Food': ['hawker', 'food court', 'restaurant', 'food centre', 'boat quay', 'clarke quay','lau pa sat'],
-    'Accommodation': ['hotel', 'hostel', 'inn', 'resort', 'lodge', 'motel','ritz-carlton']
+    'Food': ['hawker', 'food court', 'restaurant', 'food centre', 'boat quay', 'clarke quay','lau pa sat']
+    
 }
 badge_colors = {
     'Transport': "#a2c4ff",  # Light Blue
