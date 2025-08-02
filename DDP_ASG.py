@@ -21,10 +21,11 @@ headers = ['Service No', 'Next Bus', 'Next Bus 2', 'Next Bus 3']
 badge_keywords = {
     'Transport': ['stn', 'int'],
     'Accommodation': ['hotel', 'hostel', 'inn', 'resort', 'lodge', 'motel','ritz-carlton'],
-    'Attraction': ['sentosa', 'gallery', 'museum', 'zoo', 'park', 'gardens', 'esplanade'],
-    'Shopping': ['orchard', 'bugis'],
+    'Attraction': ['sentosa', 'gallery', 'museum', 'zoo', 'park', 'gardens', 'esplanade', 'theatre','float'],
+    'Shopping': ['orchard', 'bugis','ion','mall','vivocity',''],
     'Cultural': ['chinatown', 'little india'],
-    'Food': ['hawker', 'food court', 'restaurant', 'food centre', 'boat quay', 'clarke quay','lau pa sat']
+    'Food': ['hawker', 'food court', 'restaurant', 'food centre', 'boat quay', 'clarke quay','lau pa sat'],
+    'Airport':['airport']
     
 }
 badge_colors = {
@@ -33,7 +34,8 @@ badge_colors = {
     'Shopping': "#ffa9b6",       # Light Red
     'Cultural': '#fcd374' ,       # Light Yellow
     'Food': "#ffa87a",            # Light orange
-    'Accommodation': "#ffabed",  # Light pink
+    'Accommodation': "#ffabed",  # Light pink,
+    'Airport': "#76D5C7"
 }
 category_icons = {
     'Transport': "🚌",
@@ -41,7 +43,8 @@ category_icons = {
     'Shopping': "🛍️",
     'Cultural': "🏮",
     'Food': "🍜",
-    'Accommodation': "🛏️"
+    'Accommodation': "🛏️",
+    'Airport': "✈️"
 }
 #-------------------------------------------------------------------------
 # -- Function to display headers
